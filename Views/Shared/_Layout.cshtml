@@ -1,0 +1,218 @@
+﻿@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Maganmakcore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Maganmakcore</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Proizvod" asp-action="Index1">Производи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Maganmakcore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+*@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Маган-Мак</title>
+   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+
+    @*Favicon links*@
+    <link rel="apple-touch-icon" sizes="180x180" href="https://maganmak.com.mk/wp-content/uploads/fbrfg/apple-touch-icon.png?v=dLn8QXPNGb">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://maganmak.com.mk/wp-content/uploads/fbrfg/favicon-32x32.png?v=dLn8QXPNGb">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://maganmak.com.mk/wp-content/uploads/fbrfg/favicon-16x16.png?v=dLn8QXPNGb">
+    <link rel="manifest" href="https://maganmak.com.mk/wp-content/uploads/fbrfg/site.webmanifest?v=dLn8QXPNGb">
+    <link rel="mask-icon" href="https://maganmak.com.mk/wp-content/uploads/fbrfg/safari-pinned-tab.svg?v=dLn8QXPNGb" color="#5bbad5">
+    <link rel="shortcut icon" href="https://maganmak.com.mk/wp-content/uploads/fbrfg/favicon.ico?v=dLn8QXPNGb">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml?v=dLn8QXPNGb">
+    <meta name="theme-color" content="#ffffff">
+    <style type="text/css">
+        img#wpstats {
+            display: none
+        }
+    </style>
+    <link rel="icon" href="https://maganmak.com.mk/wp-content/uploads/2020/06/cropped-favicon-2-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://maganmak.com.mk/wp-content/uploads/2020/06/cropped-favicon-2-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://maganmak.com.mk/wp-content/uploads/2020/06/cropped-favicon-2-180x180.png">
+    <meta name="msapplication-TileImage" content="https://maganmak.com.mk/wp-content/uploads/2020/06/cropped-favicon-2-270x270.png">
+
+
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/font-flat/css/flaticon.css" rel="stylesheet">
+    <link href="~/lib/font-flat/css/flaticon.min.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-default">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home") "><img src="https://maganmak.com.mk/wp-content/uploads/2020/01/cropped-affix-logo.png" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end meni-link">
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Почетна</a>
+                        </li>
+                        @await  Component.InvokeAsync("KategorijaProizvodiMenu")
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Kontakt" asp-action="Index">Контакт</a>
+                        </li>
+                        @await  Component.InvokeAsync("ShoppingCartSummary")
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="text-center">
+
+                 @if (TempData["izvestuvanje"] != null)
+                {<div class="alert alert-info">@TempData["izvestuvanje"]</div>}
+
+                @if (TempData["izvestuvanje_greska"] != null)
+                {<div class="alert alert-danger">@TempData["izvestuvanje_greska"]</div>}
+
+
+                <h1 class="display-4">@ViewBag.Title</h1>
+                @if (ViewBag.Message != null)
+                {<p>@ViewBag.Message</p>}
+
+            </div>
+            @RenderBody()
+        </main>
+    </div>
+
+    <section class="footer-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-4 about">
+                    <img src="https://maganmak.com.mk/wp-content/uploads/2020/01/affix-logo.png" alt="Маган-Мак" />
+                    <p>Маган-мак е препознатлив по системите за наводнување капка по капка, минерални ѓубрива, средства за заштита, семиња, пластеници и оранжерии со врвен квалитет и највисоки стандарди.</p>
+                </div>
+                <div class="col-sm-3 col-md-4 footer-nav">
+                    <h3>Брзи Линкови</h3>
+                    <ul class="brz_link">
+                        
+                        @await  Component.InvokeAsync("BrzLinkView")
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <h3>Контакт Инфо</h3>
+                    <ul class="address">
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <p>
+                                <a href="https://goo.gl/maps/CBB4cgzY8yrV1t9Z8" target="_blank">
+                                    ул. Орце Николов бр. 71<br>
+                                    1000 Скопје, Македонија
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <p> <a href="tel:+38923216147">+389 02 3216-147</a></p>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <p> <a href="mailto:maganmak@maganmak.com.mk">maganmak@maganmak.com.mk</a></p>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Дизајнирано од <a href="mailto:postolovskiandrej@gmail.com" target="_blank">Андреј Постоловски</a></p>
+            <p>
+                &copy;
+                <script type="text/javascript">
+                    var d = new Date();
+                    document.write(d.getFullYear());
+                </script>
+                Маган-Мак | Сите права се задржани.
+            </p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>
+
+

@@ -1,0 +1,35 @@
+﻿@model Maganmakcore.Models.Kategorija_Proizvod
+
+@{
+    ViewData["Title"] = "Нова Категорија";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="nova_kategorija">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="KategorijaId" class="control-label"></label>
+                <input asp-for="KategorijaId" class="form-control" />
+                <span asp-validation-for="KategorijaId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="KategorijaIme" class="control-label"></label>
+                <input asp-for="KategorijaIme" class="form-control" />
+                <span asp-validation-for="KategorijaIme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Креирај" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-secondary">@Html.ActionLink("Назад кон листата", "Index1")</button>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

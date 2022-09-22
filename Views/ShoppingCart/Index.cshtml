@@ -1,0 +1,40 @@
+﻿@model Maganmakcore.ViewModel.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Кошничка";
+}
+
+<table class="table table-bordered table-hover ShoppingCart">
+    <thead>
+        <tr>
+            <th>Одбрана Количина</th>
+            <th>Производ</th>
+            <th class="text-right">Поединечна Цена</th>
+            <th class="text-right">Вкупна цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+        {
+            <tr>
+                <td class="text-center">@line.Amount</td>
+                <td class="text-left">@line.proizvod.ime</td>
+                <td class="text-right">@line.proizvod.Cena.ToString() ден.</td>
+                <td class="text-right">
+                    @((line.Amount * line.proizvod.Cena).ToString()) ден.
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Вкупно:</td>
+            <td class="text-right">
+                @Model.ShoppingCartTotal.ToString("0.00") ден.
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="Order" asp-action="Narachka">Нарачај сега!</a>
+</div>

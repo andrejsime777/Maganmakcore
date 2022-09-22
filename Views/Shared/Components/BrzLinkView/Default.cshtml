@@ -1,0 +1,6 @@
+﻿@model Maganmakcore.ViewModel.BrzLinkViewModel
+
+@foreach (var brzlink in Model.brzlink)
+{
+    <li><a href="@brzlink.Link" target="_blank" class="golemo"><i class="fa fa-angle-right hidden-xs"></i> @brzlink.Ime</a></li>
+}

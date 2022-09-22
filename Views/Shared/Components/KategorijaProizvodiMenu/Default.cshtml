@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Maganmakcore.Models.Kategorija_Proizvod>
+
+    <li class="dropdown">
+        <a asp-controller="Proizvod" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown">
+            Производи
+        </a>
+        <ul class="dropdown-menu">
+        @foreach(var kategorija in Model)
+        {
+            <li>
+                <a asp-controller="Proizvod" asp-action="Index" asp-route-kategorija="@kategorija.KategorijaIme" class="dropdown">@kategorija.KategorijaIme</a>
+            </li>
+        }
+        <li>
+            <a asp-controller="Proizvod" asp-action="Index" asp-route-kategorija="" class="dropdown">Сите Производи</a>
+        </li>
+        </ul>
+    </li>

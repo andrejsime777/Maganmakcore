@@ -1,0 +1,107 @@
+﻿@model Maganmakcore.Models.Kontakt
+
+@{
+    ViewData["Title"] = "Контакт";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <a class="btn kopce-proizvod kontakt" asp-action="reoni">КЛИКНЕТЕ ТУКА ЗА КОНТАКТ ПО РЕОНИ</a><br /><br />
+        <h2 class="text-center">Контакт форма</h2>
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefon" class="control-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poraka" class="control-label"></label>
+                <input asp-for="Poraka" class="form-control" />
+                <span asp-validation-for="Poraka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="испрати" class="btn kopce-proizvod kontakt" />
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="col-md-4" style="float: left;">
+        <div class="psldproiz">
+          <div class="strns prv">
+            <b>Маган-Мак Контакт</b>
+          </div>
+        </div>
+        <div class="linija"></div>
+        <div class="lista1">
+          <a class="naslov"> Адреса<br></a>
+          <a>&nbsp&nbsp&nbspул. Орце Николов бр. 71<br></a>
+          <a>&nbsp&nbsp&nbspЦентар, Скопје<br></a>
+          <a>&nbsp&nbsp&nbsp1000 Македонија</a><br>
+
+
+          <a class="naslov">Телефон</a><br>
+          <a>&nbsp&nbsp&nbsp02 3216-147</a><br>
+
+          <a class="naslov">Факс</a><br>
+          <a>&nbsp&nbsp&nbsp02 3216-158</a><br>
+
+          <a class="naslov">Email</a><br>
+          <a class="click" href="mailto:maganmak@maganmak.com.mk">&nbsp&nbsp&nbspmaganmak@maganmak.com.mk</a><br>
+
+          <a class="naslov">Веб-страна</a><br>
+          <a class="click" href="http://www.maganmak.com.mk">&nbsp&nbsp&nbspwww.maganmak.com.mk</a><br>
+
+        </div>
+        <br><br>
+        <div class="psldproiz">
+          <div class="strns pml">
+            <b>Агро-Микс Земјоделска Аптека</b>
+          </div>
+        </div>
+        <div class="linija"></div>
+        <div class="lista1">
+          <a class="naslov"> Адреса<br></a>
+          <a>&nbsp&nbsp&nbspСточен Пазар<br></a>
+          <a>&nbsp&nbsp&nbspТрубарево, Скопје<br></a>
+          <a>&nbsp&nbsp&nbsp1000 Македонија</a><br>
+
+
+          <a class="naslov">Телефон</a><br>
+          <a>&nbsp&nbsp&nbsp02 2557-650</a><br>
+
+          <a class="naslov">Мобилен телефон</a><br>
+          <a>&nbsp&nbsp&nbsp070 387-548</a><br>
+
+        </div>
+      </div>
+
+
+
+
+</div>
+
+
+<div class="row lokacija">
+    <div class="col-md-12">
+        <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.008279277269!2d21.423439515294007!3d42.00009786575005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135415456539b435%3A0xcf1175c40885f615!2sMagan-Mak!5e0!3m2!1sen!2smk!4v1592307997474!5m2!1sen!2smk" width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

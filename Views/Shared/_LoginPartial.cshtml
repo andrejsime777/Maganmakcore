@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<br /><br />
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <p><a  asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здраво @User.Identity.Name!</a></p>
+    </li>
+    <li style="margin-top:-33px">
+        <p>
+            <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <button  type="submit" class="nav-link btn btn-link text-white">Одлогирај се!</button>
+            </form>
+        </p>
+    </li>
+}
+else
+{
+    <li>
+         <i class="fa fa-user" aria-hidden="true"></i>
+        <p><a asp-area="Identity" asp-page="/Account/Register">Регистрирај се</a></p>
+    </li>
+    <li>
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        <p><a asp-area="Identity" asp-page="/Account/Login">Логирај се</a></p>
+    </li>
+}

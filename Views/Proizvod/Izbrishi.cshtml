@@ -1,0 +1,39 @@
+﻿@model Maganmakcore.Models.Proizvod
+
+@{
+    ViewData["Title"] = "Бришење на " + Model.ime;
+}
+
+<h1>Izbrishi</h1>
+
+<h3>Дали сте сигурни дека сакате да го избришете @Model.ime?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ime)
+        </dt>
+        <dd class = "col-sm-10">
+            <b>@Html.DisplayFor(model => model.ime)</b>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.kratok_opis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.kratok_opis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.slika)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Model.slika" height="200px" />
+        </dd>
+    </dl>
+    
+    <form asp-action="Izbrishi">
+        <input type="submit" value="Избриши" class="btn btn-danger" /> <br /><br />
+    </form>
+    <div class="btn-group" role="group">
+     <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
+    </div>
+</div>

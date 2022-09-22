@@ -1,0 +1,88 @@
+﻿@model Maganmakcore.ViewModel.ProizvodViewModel
+@*@model IEnumerable<Maganmakcore.Models.Proizvod>*@
+@{
+    ViewData["Title"] = "Производи";
+}
+
+<p>
+    <a asp-action="nov_proizvod">Креирај нов производ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Име
+            </th>
+            <th>
+                Категорија
+            </th>
+            <th>
+                Краток опис
+            </th>
+            <th>
+                Слика
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Proizvodi) {
+        <tr>
+            <td>
+                <a href="@Url.Action("Detali1", new { id=item.Id })">@Html.DisplayFor(modelItem => item.ime)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategorija_proizvodi.KategorijaIme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kratok_opis)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.slika)" height="120px" />
+            </td>
+            
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Измени", "Izmeni", new { id = item.Id })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Детали", "Detali1", new { id = item.Id })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Избриши", "Izbrishi", new { id = item.Id })</button>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<br /><br />
+ <div class="text-center">
+    <h1 class="display-4">Категории на производи</h1>
+ </div>
+<p>
+    <a asp-action="nova_kategorija">Креирај новa категорија</a>
+</p>                
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Име
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Kategorija_Proizvod) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategorijaIme)
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Измени", "Izmeni_kategorija", new { id = item.KategorijaId })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Избриши", "Izbrishi_kategorija", new { id = item.KategorijaId })</button>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

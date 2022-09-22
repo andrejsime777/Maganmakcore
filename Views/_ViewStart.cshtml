@@ -1,0 +1,8 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    Layout = "~/Views/Shared/_Layout_LoggedIn.cshtml";
+}
+else
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}

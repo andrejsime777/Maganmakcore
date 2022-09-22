@@ -1,0 +1,21 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Потврда за регистрирање";
+}
+<br /><br /><br />
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+    Оваа апликација моментално нема реален имејл испраќач регистрирано.
+    
+</p>
+    }
+    else
+    {
+<p>
+        Проверете го својот email за да го потврдите профилот.
+</p>
+    }
+}
