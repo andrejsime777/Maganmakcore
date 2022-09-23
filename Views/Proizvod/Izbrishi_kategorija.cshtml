@@ -1,0 +1,21 @@
+﻿@model Maganmakcore.Models.Kategorija_Proizvod
+
+@{
+    ViewData["Title"] = "Бришење на категорија";
+}
+
+<br /><br />
+<h3>Дали сте сигурни дека сакате да ја избришете категоријата <b>@Model.KategorijaIme</b>?</h3>
+<div>
+    <hr />
+
+    
+    <form asp-action="Izbrishi_kategorija">
+        <input type="hidden" asp-for="KategorijaId" />
+        <input type="submit" value="Избриши" class="btn btn-danger" />
+    </form>
+    <br />
+    <div class="btn-group" role="group">
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
+</div>
+</div>

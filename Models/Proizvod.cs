@@ -31,7 +31,7 @@ namespace Maganmakcore.Models
         [Display(Name = "Цена (во денари)")]
         public decimal Cena { get; set; }
 
-        [Display(Name = "Категорија")]
+       [Display(Name = "Категорија")]
         public Kategorija_Proizvod kategorija_proizvodi { get; set; }
 
         public int kategorija_proizvodiKategorijaId { get; set; }

@@ -22,6 +22,8 @@ namespace Maganmakcore.Data
         public DbSet<Kontakt> Kontakti { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Programm> Programi { get; set; }
+        public DbSet<Kategorija_Program> kategorija_Programi { get; set; }
 
     }
 }

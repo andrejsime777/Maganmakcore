@@ -204,3 +204,15 @@ C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Order\UspeshnaNara
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Izmeni.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Detali1.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Detali.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Izmeni_kategorija.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Izbrishi_kategorija.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\NotFound.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Index1.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\nov_program.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Izmeni.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Detali1.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\KategorijaProgramiMenu\Default.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Index.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Izbrishi.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\nova_kategorija.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\NotFound.cshtml.g.cs

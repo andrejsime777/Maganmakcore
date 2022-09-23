@@ -16,13 +16,11 @@
                 <span asp-validation-for="ime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="kategorija_proizvodiKategorijaId" class="control-label"></label>
-
-                <input asp-for="kategorija_proizvodiKategorijaId" class="form-control" />
-                @*<select asp-for="kategorija_proizvodi" class="form-control"
-                asp-items="@(new SelectList(ViewBag.lista, "Value", "Text"))"></select>*@
-
-                <span asp-validation-for="kategorija_proizvodiKategorijaId" class="text-danger"></span>
+                <label asp-for="kategorija_proizvodi" class="control-label"></label>
+@*
+                <input asp-for="kategorija_proizvodiKategorijaId" class="form-control" />*@
+                <select asp-for="kategorija_proizvodiKategorijaId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.lista, "Value", "Text"))"></select>
             </div>
             <div class="form-group">
                 <label asp-for="kratok_opis" class="control-label"></label>
@@ -55,16 +53,15 @@
                 <input type="file" name="postedFile2" class="form-control"/>   
                 <span asp-validation-for="upatstvo_link" class="text-danger"></span>
             </div>                       
-            <div class="form-group">
+            <div class="form-group" role="group">
                 <input type="submit" value="Зачувај" class="btn kopce-proizvod" />
+                <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
             </div>
         </form>
     </div>
 </div>
 
-<div class="btn-group" role="group">
-    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

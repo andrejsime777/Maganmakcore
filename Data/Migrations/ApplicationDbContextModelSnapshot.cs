@@ -38,6 +38,21 @@ namespace Maganmakcore.Data.Migrations
                     b.ToTable("Brzi_linkovi");
                 });
 
+            modelBuilder.Entity("Maganmakcore.Models.Kategorija_Program", b =>
+                {
+                    b.Property<int>("KategorijaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("KategorijaIme")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("KategorijaId");
+
+                    b.ToTable("kategorija_Programi");
+                });
+
             modelBuilder.Entity("Maganmakcore.Models.Kategorija_Proizvod", b =>
                 {
                     b.Property<int>("KategorijaId")
@@ -166,6 +181,29 @@ namespace Maganmakcore.Data.Migrations
                     b.ToTable("OrderDetails");
                 });
 
+            modelBuilder.Entity("Maganmakcore.Models.Programm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Ime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("kategorija_programiKategorijaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("pdf_link")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("kategorija_programiKategorijaId");
+
+                    b.ToTable("Programi");
+                });
+
             modelBuilder.Entity("Maganmakcore.Models.Proizvod", b =>
                 {
                     b.Property<int>("Id")
@@ -190,15 +228,12 @@ namespace Maganmakcore.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("prospekt_link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("slika")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("upatstvo_link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -442,6 +477,15 @@ namespace Maganmakcore.Data.Migrations
                     b.HasOne("Maganmakcore.Models.Proizvod", "Proizvod")
                         .WithMany()
                         .HasForeignKey("ProizvodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Maganmakcore.Models.Programm", b =>
+                {
+                    b.HasOne("Maganmakcore.Models.Kategorija_Program", "kategorija_programi")
+                        .WithMany("Programi")
+                        .HasForeignKey("kategorija_programiKategorijaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

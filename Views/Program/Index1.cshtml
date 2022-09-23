@@ -1,0 +1,80 @@
+﻿@model Maganmakcore.ViewModel.ProgramViewModel
+
+@{
+    ViewData["Title"] = "Програми";
+}
+
+<p>
+    <a asp-action="nov_program">Креирај нов програм</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Име
+            </th>
+            <th>
+                Категорија
+            </th>
+            <th>
+                ПДФ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Programi) {
+        <tr>
+            <td>
+                <a class="proizvodlista" href="@Url.Action("Detali1", new { id=item.Id })">@Html.DisplayFor(modelItem => item.Ime)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategorija_programi.KategorijaIme)
+            </td>
+            <td>
+                <a href="@item.pdf_link" target="_blank">Отвори во нов таб ></a>
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Измени", "Izmeni", new { id = item.Id })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Детали", "Detali1", new { id = item.Id })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Избриши", "Izbrishi", new { id = item.Id })</button>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br /><br />
+ <div class="text-center">
+    <h1 class="display-4">Категории на програми</h1>
+ </div>
+ <p>
+    <a asp-action="nova_kategorija">Креирај нова категорија</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Категорија
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Kategorija) {
+        <tr>
+            <td>
+                <a class="proizvodlista" href="@Url.Action("Izmeni_kategorija", new { id=item.KategorijaId })">@Html.DisplayFor(modelItem => item.KategorijaIme)</a>
+            </td>
+
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Измени", "Izmeni_kategorija", new { id = item.KategorijaId })</button>
+                    <button type="button" class="btn btn-secondary">@Html.ActionLink("Избриши", "Izbrishi_kategorija", new { id = item.KategorijaId })</button>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

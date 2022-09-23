@@ -24,7 +24,7 @@ namespace Maganmakcore.Services
 
         public Proizvod Get(int id)
         {
-            return db.Proizvodi.FirstOrDefault(p => p.Id == id);
+            return db.Proizvodi.Include(c=>c.kategorija_proizvodi).FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Proizvod> GetAll()
@@ -38,7 +38,7 @@ namespace Maganmakcore.Services
         {
             get
             {
-                return db.Proizvodi.Include(c => c.kategorija_proizvodi);
+                return db.Proizvodi.Include(c => c.kategorija_proizvodi).OrderByDescending(p => p.Id);
             }
         }
 

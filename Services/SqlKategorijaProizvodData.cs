@@ -15,7 +15,7 @@ namespace Maganmakcore.Services
             this.db = db;
         }
 
-        public IEnumerable<Kategorija_Proizvod> SiteKategorii => db.kategorija_Proizvodi;
+        public IEnumerable<Kategorija_Proizvod> SiteKategorii => db.kategorija_Proizvodi.OrderByDescending(k => k.KategorijaId);
 
         public void Add(Kategorija_Proizvod kategorija)
         {

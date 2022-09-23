@@ -42,14 +42,18 @@ namespace Maganmakcore.Controllers
             {
                 proizvodi = db.SiteProizvodi.OrderBy(p => p.Id);
                 momentalna_kategorija = "Сите производи";
+
+                ViewBag.Message = "Тука може да ги погледнете сите производи од палетата на Маган-Мак";
             }
             else
             {
                 proizvodi = db.SiteProizvodi.Where(p => p.kategorija_proizvodi.KategorijaIme == kategorija).OrderBy(p => p.Id);
                 momentalna_kategorija = dbktg.SiteKategorii.FirstOrDefault(c => c.KategorijaIme == kategorija)?.KategorijaIme;
+
+                ViewBag.Message = "Тука може да ги погледнете производите од категоријата " + momentalna_kategorija.ToLower() + " на Маган-Мак";
             }
 
-            ViewBag.Message = "Тука може да ја погледнете палетата на производи на Маган-Мак";
+            
             
             return View(new ProizvodViewModel
             {
@@ -64,7 +68,7 @@ namespace Maganmakcore.Controllers
             ViewBag.Message = "Страна за додавање и менување на производи и нивните категории";
 
             var view = new ProizvodViewModel();
-            view.Proizvodi = db.GetAll();
+            view.Proizvodi = db.SiteProizvodi;
             view.Kategorija_Proizvod = dbktg.GetAll();
 
             /*var view = db.GetAll();*/
@@ -217,8 +221,23 @@ namespace Maganmakcore.Controllers
             var model = db.Get(id);
             if (model == null)
             {
-                return NotFound();
+                return View("NotFound");
             }
+
+            var lista = (from kategorija in dbktg.SiteKategorii
+                         select new SelectListItem()
+                         {
+                             Text = kategorija.KategorijaIme,
+                             Value = kategorija.KategorijaId.ToString()
+                         }).ToList();
+
+            lista.Insert(0, new SelectListItem()
+            {
+                Text = "---Избери категорија---",
+                Value = string.Empty
+            });
+
+            ViewBag.lista = lista;
             TempData["slika"] = model.slika;
             TempData["prospekt"] = model.prospekt_link;
             TempData["upatstvo"] = model.upatstvo_link;
@@ -379,6 +398,7 @@ namespace Maganmakcore.Controllers
                 FileInfo file = new FileInfo(zabrisenje);
                 file.Delete();
             }
+            else { }
 
             if (TempData["prospekt1"] != null)
             {
@@ -387,6 +407,7 @@ namespace Maganmakcore.Controllers
                 FileInfo file1 = new FileInfo(zabrisenje1);
                 file1.Delete();
             }
+            else { }
 
             if (TempData["upatstvo1"] != null)
             {
@@ -395,6 +416,7 @@ namespace Maganmakcore.Controllers
                 FileInfo file2 = new FileInfo(zabrisenje2);
                 file2.Delete();
             }
+            else { }
 
             TempData["izvestuvanje"] = "Производот е успешно избришан!";
             db.Delete(id);
@@ -419,6 +441,54 @@ namespace Maganmakcore.Controllers
             {
                 dbktg.Add(kategorija);
                 TempData["izvestuvanje"] = "Категоријата е успешно додадена";
+                return RedirectToAction("Index1");
+            }
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Izmeni_kategorija(int id) 
+        {
+            var model = dbktg.Get(id);
+            if (model == null)
+            {
+                return View("NotFound");
+            }
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Izmeni_kategorija(Kategorija_Proizvod kategorija)
+        {
+            if (ModelState.IsValid)
+            {
+                dbktg.Update(kategorija);
+                TempData["izvestuvanje"] = "Категоријата е успешно изменета";
+                return RedirectToAction("Index1");
+            }
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Izbrishi_kategorija(int id)
+        {
+            var model = dbktg.Get(id);
+            if (model == null)
+            {
+                return View("NotFound");
+            }
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Izbrishi_kategorija(int id, IFormCollection form)
+        {
+            if (ModelState.IsValid)
+            {
+                dbktg.Delete(id);
+                TempData["izvestuvanje"] = "Категоријата е успешно избришана";
                 return RedirectToAction("Index1");
             }
             return View();

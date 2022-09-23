@@ -30,7 +30,7 @@
 @foreach (var item in Model.Proizvodi) {
         <tr>
             <td>
-                <a href="@Url.Action("Detali1", new { id=item.Id })">@Html.DisplayFor(modelItem => item.ime)</a>
+                <a class="proizvodlista" href="@Url.Action("Detali1", new { id=item.Id })">@Html.DisplayFor(modelItem => item.ime)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.kategorija_proizvodi.KategorijaIme)
@@ -74,7 +74,7 @@
 @foreach (var item in Model.Kategorija_Proizvod) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.KategorijaIme)
+                 <a class="proizvodlista" href="@Url.Action("Izmeni_kategorija", new { id=item.KategorijaId })">@Html.DisplayFor(modelItem => item.KategorijaIme)</a>
             </td>
             <td>
                 <div class="btn-group" role="group">

@@ -1,0 +1,42 @@
+﻿@model Maganmakcore.Models.Programm
+
+@{
+    ViewData["Title"] = "Нова Програма";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="nov_program" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <div class="form-group">
+                <label asp-for="kategorija_programi" class="control-label"></label>
+@*
+                <input asp-for="kategorija_proizvodiKategorijaId" class="form-control" />*@
+                <select asp-for="kategorija_programiKategorijaId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.lista, "Value", "Text"))"></select>
+            </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="pdf_link" class="control-label"></label>
+                <input type="file" name="postedFile" class="form-control" required />     
+                <span asp-validation-for="pdf_link" class="text-danger"></span>
+            </div>
+            <div class="form-group" role="group">
+               <input type="submit" id="btnUpload" value="Креирај" class="btn kopce-proizvod" />
+               <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

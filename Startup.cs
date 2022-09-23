@@ -38,6 +38,8 @@ namespace Maganmakcore
 
             services.AddScoped<IProizvodData, SqlProizvodData>();
             services.AddScoped<IKategorijaProizvodData, SqlKategorijaProizvodData>();
+            services.AddScoped<IProgramData, SqlProgramData>();
+            services.AddScoped<IKategorijaProgramData, SqlKategorijaProgramData>();
             services.AddScoped<IBrzLinkData, SqlBrzLinkData>();
             services.AddScoped<IKontaktData, SqlKontaktData>();
             services.AddScoped<IOrderData, SqlOrderData>();

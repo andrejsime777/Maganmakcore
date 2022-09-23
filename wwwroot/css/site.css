@@ -626,3 +626,55 @@ a.naslov {
         width: 100%;
     }
 }
+
+a.proizvodlista{
+    text-decoration:underline;
+    color: blue;
+    font-size:20px;
+}
+.thumbnail {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-bottom: 10px;
+}
+.slika_prog {
+    position: relative;
+}
+    .slika_prog .hover-img {
+        background: #fff;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+    }
+        .slika_prog .hover-img .slika {
+            background: white;
+            display: block;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            margin: 0 0 0 0;
+        }
+#txt {
+    text-align: center;
+}
+.thumbnail.prog .caption {
+    border: solid 1px #f0f0f0;
+    margin: 0;
+    padding: 20px 20px 30px;
+    background-color: white;
+    color: black;
+    height: fit-content;
+}
+.thumbnail.prog .caption #txt a {
+    font-weight: 400;
+    color:black;
+}
+.thumbnail.prog img {
+    width: 100%;
+    height:auto;
+}
