@@ -238,24 +238,22 @@ namespace Maganmakcore.Controllers
             }
             else
             {
-                if(TempData["slika"] != null) 
-                {
-                    string postoecki = (string)TempData["slika"];
-                    var zabrisenje = Path.Combine(_webhost.WebRootPath + postoecki);
-                    FileInfo file = new FileInfo(zabrisenje);
-                    file.Delete();
-                }
-                else { }
-                
-
                 string fileName = Path.GetFileName(DateTime.Now.Millisecond.ToString() + DateTime.Now.DayOfYear.ToString() + postedFile.FileName);
-
                 var saveImg = Path.Combine(_webhost.WebRootPath, "sodrzhina/Images", fileName);
                 var saveImg1 = Path.Combine("/sodrzhina/Images", fileName);
                 string imgext = Path.GetExtension(postedFile.FileName);
 
                 if (imgext == ".jpg" || imgext == ".png")
                 {
+                    if (TempData["slika"] != null)
+                    {
+                        string postoecki = (string)TempData["slika"];
+                        var zabrisenje = Path.Combine(_webhost.WebRootPath + postoecki);
+                        FileInfo file = new FileInfo(zabrisenje);
+                        file.Delete();
+                    }
+                    else { }
+
                     using (var uploadimg = new FileStream(saveImg, FileMode.Create))
                     {
                         await postedFile.CopyToAsync(uploadimg);
@@ -264,7 +262,7 @@ namespace Maganmakcore.Controllers
                 }
                 else
                 {
-                    TempData["izvestuvanje_greska"] = "Има некоја грешка. Проверете дали сликата e .jpg или .png, и дали упатството и проспектот се .pdf фајлови";
+                    TempData["izvestuvanje_greska"] = "Сликата не e .jpg или .png формат";
                     return View(proizvod);
                 }
             }
@@ -274,17 +272,7 @@ namespace Maganmakcore.Controllers
                 proizvod.prospekt_link = (string)TempData["prospekt"];
             }
             else
-            {
-                if (TempData["prospekt"] != null)
-                {
-                    string postoecki = (string)TempData["prospekt"];
-                    var zabrisenje = Path.Combine(_webhost.WebRootPath + postoecki);
-                    FileInfo file = new FileInfo(zabrisenje);
-                    file.Delete();
-                }
-                else { }
-               
-
+            {                          
                 string fileName1 = Path.GetFileName(DateTime.Now.Millisecond.ToString() + DateTime.Now.DayOfYear.ToString() + postedFile1.FileName);
                 var saveprospekt = Path.Combine(_webhost.WebRootPath, "sodrzhina/Prospekti", fileName1);
                 var saveprospekt1 = Path.Combine("/sodrzhina/Prospekti", fileName1);
@@ -292,6 +280,15 @@ namespace Maganmakcore.Controllers
 
                 if (prospektext == ".pdf")
                 {
+                    if (TempData["prospekt"] != null)
+                    {
+                        string postoecki = (string)TempData["prospekt"];
+                        var zabrisenje = Path.Combine(_webhost.WebRootPath + postoecki);
+                        FileInfo file = new FileInfo(zabrisenje);
+                        file.Delete();
+                    }
+                    else { }
+
                     using (var uploadprospekt = new FileStream(saveprospekt, FileMode.Create))
                     {
                         await postedFile1.CopyToAsync(uploadprospekt);
@@ -300,7 +297,7 @@ namespace Maganmakcore.Controllers
                 }
                 else
                 {
-                    TempData["izvestuvanje_greska"] = "Има некоја грешка. Проверете дали сликата e .jpg или .png, и дали упатството и проспектот се .pdf фајлови";
+                    TempData["izvestuvanje_greska"] = "Проспектот не е во .pdf формат";
                     return View(proizvod);
                 }
             }
@@ -311,16 +308,6 @@ namespace Maganmakcore.Controllers
             }
             else
             {
-                if (TempData["upatstvo"] != null)
-                {
-                    string postoecki = (string)TempData["upatstvo"];
-                    var zabrisenje = Path.Combine(_webhost.WebRootPath + postoecki);
-                    FileInfo file = new FileInfo(zabrisenje);
-                    file.Delete();
-                }
-                else { }
-                
-
                 string fileName2 = Path.GetFileName(DateTime.Now.Millisecond.ToString() + DateTime.Now.DayOfYear.ToString() + postedFile2.FileName);
                 var saveupatstvo = Path.Combine(_webhost.WebRootPath, "sodrzhina/Prospekti", fileName2);
                 var saveupatstvo1 = Path.Combine("/sodrzhina/Prospekti", fileName2);
@@ -328,6 +315,15 @@ namespace Maganmakcore.Controllers
 
                 if (upatstvoext == ".pdf")
                 {
+                    if (TempData["upatstvo"] != null)
+                    {
+                        string postoecki = (string)TempData["upatstvo"];
+                        var zabrisenje = Path.Combine(_webhost.WebRootPath + postoecki);
+                        FileInfo file = new FileInfo(zabrisenje);
+                        file.Delete();
+                    }
+                    else { }
+
                     using (var uploadupatstvo = new FileStream(saveupatstvo, FileMode.Create))
                     {
                         await postedFile2.CopyToAsync(uploadupatstvo);
@@ -336,7 +332,7 @@ namespace Maganmakcore.Controllers
                 }
                 else
                 {
-                    TempData["izvestuvanje_greska"] = "Има некоја грешка. Проверете дали сликата e .jpg или .png, и дали упатството и проспектот се .pdf фајлови";
+                    TempData["izvestuvanje_greska"] = "Упатството не е во .pdf формат";
                     return View(proizvod);
                 }
             }
