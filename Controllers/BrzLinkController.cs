@@ -34,9 +34,10 @@ namespace Maganmakcore.Controllers
             if (ModelState.IsValid)
             {
                 db.Add(brz_link);
-                ViewBag.news = "Линкот е успешно додаден";
+                TempData["izvestuvanje"] = "Линкот е успешно додаден";
                 return RedirectToAction("Index");
             }
+            TempData["izvestuvanje_greska"] = "Има некоја грешка!";
             return View();
         }
         [Authorize]

@@ -43,6 +43,8 @@ namespace Maganmakcore
             services.AddScoped<IBrzLinkData, SqlBrzLinkData>();
             services.AddScoped<IKontaktData, SqlKontaktData>();
             services.AddScoped<IOrderData, SqlOrderData>();
+            services.AddScoped<IOrderDetailData, SqlOrderDetailData>();
+            services.AddScoped<IPocetnaData, SqlPocetnaData>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
             //services.AddTransient
             //services.AddSingleton()

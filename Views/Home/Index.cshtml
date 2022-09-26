@@ -1,22 +1,30 @@
-﻿@model IEnumerable<Maganmakcore.Models.Proizvod>
+﻿@model IEnumerable<Maganmakcore.Models.Pocetna>
+
 @{
     ViewBag.Title = "Почетна";
+    Layout = "~/Views/Shared/_Layout_Pocetna.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>Дипломска</h1>
-    <p class="lead">Во датабазата има @Model.Count() производи</p>
-    <p><a href="@Url.Action("Index1","Proizvod")" class="btn kopce-proizvod">Кон производи &raquo;</a></p>
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">      
+        @foreach(var item in Model)
+        {
+            <div class="carousel-item @(item == Model.First() ? "active" : "")" data-interval="5000">
+                <img src="@item.Slika" class="d-block w-100" alt="Почетна Слика">
+            </div>
+        }
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
-<div class="row">
-
-    @foreach (var proizvod in Model)
-    {
-        <div class="col-md-4">
-            <h3>@proizvod.ime</h3>
-        </div>
-
-    }
-
+<div class="container pocetna">
+    <main role="main" class="pb-3">
+        @*TUka ide main content*@
+    </main>
 </div>

@@ -24,6 +24,7 @@ namespace Maganmakcore.Data
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Programm> Programi { get; set; }
         public DbSet<Kategorija_Program> kategorija_Programi { get; set; }
+        public DbSet<Pocetna> sliki_pocetna { get; set; }
 
     }
 }

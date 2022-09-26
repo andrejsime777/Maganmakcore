@@ -1,6 +1,10 @@
 ﻿using Maganmakcore.Services;
 using Maganmakcore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Maganmakcore.ViewModel;
+using System.Collections.Generic;
+using Maganmakcore.Data;
+using System.Linq;
 
 namespace Maganmakcore.Controllers
 {
@@ -8,11 +12,13 @@ namespace Maganmakcore.Controllers
     {
         private readonly IOrderData db;
         private readonly ShoppingCart sc;
+        private readonly IOrderDetailData detail;
 
-        public OrderController(IOrderData db, ShoppingCart sc)
+        public OrderController(IOrderData db, ShoppingCart sc, IOrderDetailData detail)
         {
             this.db = db;
             this.sc = sc;
+            this.detail = detail;
         }
 
         public IActionResult Narachka()
@@ -45,6 +51,37 @@ namespace Maganmakcore.Controllers
             ViewBag.Message = "Ви благодариме за нарачката. Производите ќе бидат доставени најбрзо што може. Чекањето е од 1-3 дена.";
 
             return View();
+        }
+
+        public ActionResult List()
+        {
+            var model = new OrderViewModel();
+            model.Orders = db.SiteNaracki;
+
+            return View(model);
+        }
+
+        public ActionResult Detali1(int id)
+        {
+            var model = new OrderViewModel();
+            model.order = db.Get(id);/*
+            var detal = detail.Get(id);*/
+
+            model.Details = detail.GetAll(id);
+
+            /*            foreach(var item in detal)
+                        {
+                            model.Cena = item.Cena;
+                            model.Amount = item.Amount;
+                            model.proizvod = item.Proizvod;
+                            model.VkupnaCena = (item.Cena * item.Amount);
+                        }*/
+
+            if (model.order == null)
+            {
+                return View("NotFound");
+            }
+            return View(model);
         }
     }
 }

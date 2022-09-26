@@ -1,5 +1,6 @@
 ﻿using Maganmakcore.Data;
 using Maganmakcore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,14 @@ namespace Maganmakcore.Services
         {
             _appDbContext = appDbContext;
             _shoppingCart = shoppingCart;
+        }
+
+        public IEnumerable<Order> SiteNaracki
+        {
+            get
+            {
+                return _appDbContext.Orders.Include(d => d.OrderDetails).OrderByDescending(n => n.OrderId);
+            }
         }
 
         public void CreateOrder(Order order)
@@ -43,6 +52,11 @@ namespace Maganmakcore.Services
             _appDbContext.Orders.Add(order);
 
             _appDbContext.SaveChanges();
+        }
+
+        public Order Get(int id)
+        {
+           return _appDbContext.Orders.FirstOrDefault(p => p.OrderId == id);
         }
     }
 }

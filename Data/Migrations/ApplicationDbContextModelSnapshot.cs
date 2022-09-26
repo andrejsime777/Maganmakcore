@@ -181,6 +181,21 @@ namespace Maganmakcore.Data.Migrations
                     b.ToTable("OrderDetails");
                 });
 
+            modelBuilder.Entity("Maganmakcore.Models.Pocetna", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("sliki_pocetna");
+                });
+
             modelBuilder.Entity("Maganmakcore.Models.Programm", b =>
                 {
                     b.Property<int>("Id")

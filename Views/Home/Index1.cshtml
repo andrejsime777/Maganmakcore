@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Maganmakcore.Models.Pocetna>
+@{
+    ViewBag.Title = "Почетна";
+}
+
+<p>
+    <a asp-action="nova_slika">Прикачи нова слика</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Slika)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                 <img src="@item.Slika" alt="Pocetna Slika" height="200px" style="border-radius: 15px;">
+            </td>
+            <td>
+                 <div class="btn-group" role="group">
+                <button type="button" class="btn btn-secondary">@Html.ActionLink("Измени", "Izmeni", new { id = item.Id })</button>
+                <button type="button" class="btn btn-secondary">@Html.ActionLink("Избриши", "Izbrishi", new { id = item.Id })</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -678,3 +678,12 @@ a.proizvodlista{
     width: 100%;
     height:auto;
 }
+
+.container.pocetna {
+    max-width: 100%;
+    padding: 0;
+}
+
+.navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-light.box-shadow.mb-3.bg-default.pocetna{
+    margin-bottom: 0px !important;
+}

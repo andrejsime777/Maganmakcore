@@ -1,0 +1,22 @@
+﻿@model Maganmakcore.Models.Pocetna
+
+@{
+    ViewData["Title"] = "Прикачи нова слика";
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="nova_slika" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Slika" class="control-label"></label>
+                <br />
+                <input type="file" name="postedFile" class="form-control" required />
+                <span asp-validation-for="Slika" class="text-danger"></span>
+            </div>
+            <div class="form-group" role="group">
+                <input type="submit" id="btnUpload" value="Прикачи" class="btn kopce-proizvod" />
+                <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
+        </form>
+    </div>
+</div>
