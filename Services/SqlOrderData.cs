@@ -54,6 +54,13 @@ namespace Maganmakcore.Services
             _appDbContext.SaveChanges();
         }
 
+        public void Delete(int id)
+        {
+            var order = _appDbContext.Orders.Find(id);
+            _appDbContext.Orders.Remove(order);
+            _appDbContext.SaveChanges();
+        }
+
         public Order Get(int id)
         {
            return _appDbContext.Orders.FirstOrDefault(p => p.OrderId == id);

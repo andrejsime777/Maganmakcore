@@ -1,7 +1,7 @@
 ﻿@model Maganmakcore.Models.Programm
 
 @{
-    ViewData["Title"] = "Детали за " + Model.Ime;
+    ViewData["Title"] = "Детали за " + Model.Ime.ToLower();
 }
 
 <div>
@@ -28,7 +28,7 @@
     </dl>
 </div>
 <div class="btn-group" role="group">
-    <button type="button" class="btn btn-secondary">@Html.ActionLink("Измени", "Izmeni", new { id = Model.Id })</button>
-    <button type="button" class="btn btn-secondary">@Html.ActionLink("Избриши", "Izbrishi", new { id = Model.Id })</button>
-    <button type="button" class="btn btn-secondary">@Html.ActionLink("Назад кон листата", "Index1")</button>
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Измени", "Izmeni", new { id = Model.Id })</button>
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Избриши", "Izbrishi", new { id = Model.Id })</button>
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листата", "Index1")</button>
 </div>

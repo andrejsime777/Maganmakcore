@@ -8,5 +8,6 @@ namespace Maganmakcore.Services
         void CreateOrder(Order order);
         IEnumerable<Order> SiteNaracki { get; }
         Order Get(int id);
+        void Delete(int id);
     }
 }

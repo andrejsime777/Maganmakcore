@@ -83,7 +83,7 @@ namespace Maganmakcore.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("Корисникот е логиран.");
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("Index1", "Home");
                 }
                 if (result.RequiresTwoFactor)
                 {

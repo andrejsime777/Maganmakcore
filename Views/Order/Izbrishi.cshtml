@@ -1,0 +1,117 @@
+﻿@model Maganmakcore.ViewModel.OrderViewModel
+
+@{
+    ViewData["Title"] = "Бришење на нарачка број " + Model.order.OrderId;
+}
+
+<br />
+<h3>Дали навистина сакате да ја избришете оваа нарачка?</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.FirstName)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.FirstName)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.LastName)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.LastName)
+            </dd><br />
+            
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.PhoneNumber)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.PhoneNumber)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.Email)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.Email)
+            </dd><br />
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.AddressLine1)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.AddressLine1)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.AddressLine2)
+            </dt><br /><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.AddressLine2)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.ZipCode)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.ZipCode)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.City)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.City)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.Country)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.Country)
+            </dd><br />
+        </dl>
+    </div>
+</div>
+
+<table class="table table-bordered table-hover ShoppingCart naracka">
+    <thead>
+        <tr>
+            <th>Производ</th>
+            <th>Одбрана Количина</th>
+            
+            <th class="text-right">Поединечна Цена</th>
+            <th class="text-right">Вкупна цена</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var item in Model.Details)
+        {
+            <tr>
+                <td class="text-center">@item.Proizvod.ime</td>
+                <td class="text-left">@item.Amount</td>
+                <td class="text-right">@item.Cena.ToString() ден.</td>
+                <td class="text-right">
+                    @((item.Amount * item.Cena).ToString()) ден.
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right"><b>Вкупно:</b></td>
+            <td class="text-right">
+                <b>@Model.order.OrderTotal.ToString("0.00") ден.</b>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+    <form asp-action="Izbrishi">
+        <input type="hidden" asp-for="order.OrderId" />
+        <input type="submit" value="Избриши" class="btn btn-danger" />
+    </form>
+    <br />
+    <div class="btn-group" role="group">
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листа", "List")</button>
+</div>

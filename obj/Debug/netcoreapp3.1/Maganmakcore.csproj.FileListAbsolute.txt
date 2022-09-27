@@ -206,7 +206,6 @@ C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Detali1.c
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Detali.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Izmeni_kategorija.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\Izbrishi_kategorija.cshtml.g.cs
-C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Proizvod\NotFound.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Index1.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\nov_program.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Izmeni.cshtml.g.cs
@@ -215,7 +214,6 @@ C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Index.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Izbrishi.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\nova_kategorija.cshtml.g.cs
-C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\NotFound.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Order\List.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Order\Detali1.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout_Pocetna.cshtml.g.cs
@@ -223,3 +221,7 @@ C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index1.cshtml
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Home\nova_slika.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Izmeni.cshtml.g.cs
 C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Izbrishi.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NotFound.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Order\Izbrishi.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Izmeni_kategorija.cshtml.g.cs
+C:\Diplomska\Maganmakcore\obj\Debug\netcoreapp3.1\Razor\Views\Program\Izbrishi_kategorija.cshtml.g.cs

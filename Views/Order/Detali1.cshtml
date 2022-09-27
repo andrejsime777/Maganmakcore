@@ -2,83 +2,119 @@
 @model Maganmakcore.ViewModel.OrderViewModel
 
 @{
-    ViewData["Title"] = "Detali1";
+    ViewData["Title"] = "Детали за нарачка број " + Model.order.OrderId;
 }
 
-<h1>Detali1</h1>
-
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.FirstName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.FirstName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.AddressLine1)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.AddressLine1)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.AddressLine2)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.AddressLine2)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.ZipCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.ZipCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.City)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.order.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.order.Email)
-        </dd>
-    </dl>
+<br />
+<h2>Податоци за нарачателот:</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.FirstName)
+            </dt>
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.FirstName)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.LastName)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.LastName)
+            </dd><br />
+            
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.PhoneNumber)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.PhoneNumber)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.Email)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.Email)
+            </dd><br />
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.AddressLine1)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.AddressLine1)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.AddressLine2)
+            </dt><br /><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.AddressLine2)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.ZipCode)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.ZipCode)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.City)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.City)
+            </dd><br />
+            <dt class = "col-sm-4">
+                @Html.DisplayNameFor(model => model.order.Country)
+            </dt><br />
+            <dd class = "col-sm-8">
+                @Html.DisplayFor(model => model.order.Country)
+            </dd><br />
+        </dl>
+    </div>
 </div>
 
 
+<br /><br />
+<h2>Податоци за нарачката:</h2>
+<hr />
 
+<table class="table table-bordered table-hover ShoppingCart naracka">
+    <thead>
+        <tr>
+            <th>Производ</th>
+            <th>Одбрана Количина</th>
+            
+            <th class="text-right">Поединечна Цена</th>
+            <th class="text-right">Вкупна цена</th>
+        </tr>
+    </thead>
+    <tbody>
 
-@foreach(var item in Model.Details)
-{
-    <li>@item.Proizvod.ime</li>
-<li>@item.Amount</li>
-<li>@item.Cena</li>
+        @foreach(var item in Model.Details)
+        {
+            <tr>
+                <td class="text-center">@item.Proizvod.ime</td>
+                <td class="text-left">@item.Amount</td>
+                <td class="text-right">@item.Cena.ToString() ден.</td>
+                <td class="text-right">
+                    @((item.Amount * item.Cena).ToString()) ден.
+                </td>
+            </tr>
+        }
 
-}
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.order.OrderId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right"><b>Вкупно:</b></td>
+            <td class="text-right">
+                <b>@Model.order.OrderTotal.ToString("0.00") ден.</b>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="btn-group" role="group">
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Назад кон листа", "List")</button>
+    <button type="button" class="btn kopce-proizvod">@Html.ActionLink("Избриши", "Izbrishi", new { id = Model.order.OrderId })</button>
 </div>

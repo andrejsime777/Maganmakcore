@@ -1,5 +1,6 @@
 ﻿using Maganmakcore.Models;
 using Maganmakcore.Services;
+using Maganmakcore.ViewModel;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -19,19 +20,22 @@ namespace Maganmakcore.Controllers
     {
         private readonly IPocetnaData db;
         private readonly IWebHostEnvironment _webhost;
+        private readonly IProizvodData dbprzv;
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IPocetnaData db, IWebHostEnvironment _webhost)
+        public HomeController(ILogger<HomeController> logger, IPocetnaData db, IWebHostEnvironment _webhost, IProizvodData dbprzv)
         {
             _logger = logger;
             this.db = db;
             this._webhost = _webhost;
+            this.dbprzv = dbprzv;
         }
 
         public IActionResult Index()
         {
-            var model = db.GetAll();
+            var model = new PocetnaViewModel();
+            model.pocetna1 = db.GetAll();
             return View(model);
         }
 

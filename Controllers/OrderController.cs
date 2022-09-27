@@ -5,6 +5,8 @@ using Maganmakcore.ViewModel;
 using System.Collections.Generic;
 using Maganmakcore.Data;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace Maganmakcore.Controllers
 {
@@ -34,7 +36,7 @@ namespace Maganmakcore.Controllers
 
             if(sc.ShoppingCartItems.Count == 0)
             {
-                ModelState.AddModelError("", "Вашата кошничка е празна, додадете некој производ прво");
+                ModelState.AddModelError("", "Вашата кошничка е празна, прво додадете некој производ");
             }
 
             if (ModelState.IsValid)
@@ -53,29 +55,22 @@ namespace Maganmakcore.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult List()
         {
+            ViewBag.Message = "Преглед на нарачки";
             var model = new OrderViewModel();
             model.Orders = db.SiteNaracki;
 
             return View(model);
         }
 
+        [Authorize]
         public ActionResult Detali1(int id)
         {
             var model = new OrderViewModel();
-            model.order = db.Get(id);/*
-            var detal = detail.Get(id);*/
-
+            model.order = db.Get(id);
             model.Details = detail.GetAll(id);
-
-            /*            foreach(var item in detal)
-                        {
-                            model.Cena = item.Cena;
-                            model.Amount = item.Amount;
-                            model.proizvod = item.Proizvod;
-                            model.VkupnaCena = (item.Cena * item.Amount);
-                        }*/
 
             if (model.order == null)
             {
@@ -83,5 +78,29 @@ namespace Maganmakcore.Controllers
             }
             return View(model);
         }
+
+        [Authorize]
+        public ActionResult Izbrishi(int id)
+        {
+            var model = new OrderViewModel();
+            model.order = db.Get(id);
+            model.Details = detail.GetAll(id);
+            if (model.order == null)
+            {
+                return View("NotFound");
+            }
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Izbrishi(int id, IFormCollection form)
+        {
+            TempData["izvestuvanje"] = "Нарачката е успешно избришана!";
+            db.Delete(id);
+            return RedirectToAction("List");
+        }
+
     }
 }

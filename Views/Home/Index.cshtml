@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Maganmakcore.Models.Pocetna>
+﻿@model Maganmakcore.ViewModel.PocetnaViewModel
 
 @{
     ViewBag.Title = "Почетна";
@@ -7,24 +7,46 @@
 
 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">      
-        @foreach(var item in Model)
+        @foreach(var item in Model.pocetna1)
         {
-            <div class="carousel-item @(item == Model.First() ? "active" : "")" data-interval="5000">
+            <div class="carousel-item @(item == Model.pocetna1.First() ? "active" : "")" data-interval="5000">
                 <img src="@item.Slika" class="d-block w-100" alt="Почетна Слика">
             </div>
         }
   <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Претходна</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">Следна</span>
   </a>
 </div>
 
-<div class="container pocetna">
+<div class="container">
     <main role="main" class="pb-3">
-        @*TUka ide main content*@
+        <section class="lista-proizvodi">
+            <div class="pocetna-container">
+
+                 <div class="card">
+                    <div class="slika-proizvod"><a href="@Url.Action("Index","Proizvod")"><img src="/sodrzhina/product-icon.jpg"></a></div>
+                    <div class="naslov-proizvod"><a href="@Url.Action("Index","Proizvod")">Производи</a></div>
+                    <div class="kratok-opis-proizvod">Погледнете ја палетата на производи на Маган-Мак</div>           
+                 </div>
+
+                 <div class="card">
+                    <div class="slika-proizvod"><a href="@Url.Action("Index","Program")"><img src="/sodrzhina/program-icon.jpg"></a></div>
+                    <div class="naslov-proizvod"><a href="@Url.Action("Index","Program")">Програми</a></div>
+                    <div class="kratok-opis-proizvod">Погледнете ја палетата на програми на Маган-Мак</div>            
+                 </div>
+            </div>
+        </section>
+
+        <section>
+            <h1 class="text-center">Пронајдете нè на Facebook</h1><br />
+            <div class="fb-page" data-href="https://www.facebook.com/MaganMak/" data-tabs="timeline" data-width="500" data-height="1000" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/MaganMak/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/MaganMak/">Magan-Mak Skopje</a></blockquote></div>
+        </section>
+
+
     </main>
 </div>
