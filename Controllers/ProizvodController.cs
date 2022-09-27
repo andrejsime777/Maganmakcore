@@ -98,6 +98,7 @@ namespace Maganmakcore.Controllers
             ViewBag.Message = "Детали за " + model.ime;
             return View(model);
         }
+
         [Authorize]
         public ActionResult nov_proizvod()
         {

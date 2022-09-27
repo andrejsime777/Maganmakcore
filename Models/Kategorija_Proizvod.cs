@@ -10,8 +10,5 @@ namespace Maganmakcore.Models
 
         [Display(Name = "Име на категорија")]
         public string KategorijaIme { get; set; }
-
-
-        public List<Proizvod> Proizvodi { get; set; }
     }
 }
